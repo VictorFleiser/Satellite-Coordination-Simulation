@@ -1,0 +1,36 @@
+name: 'DCOP_request_36'
+objective: max
+
+domains: 
+  binary_domain:
+    values: [0, 1]
+    type: bool
+
+variables:
+  decision_var_exclusive_win_e_2_s_0_232_249_observation_o_0_36_6_user_2:
+    domain: binary_domain
+  decision_var_exclusive_win_e_1_s_1_78_94_observation_o_0_36_7_user_1:
+    domain: binary_domain
+
+constraints:
+  at_most_one_assigned_observation:
+    type: intention
+    function: 0 if decision_var_exclusive_win_e_2_s_0_232_249_observation_o_0_36_6_user_2 + decision_var_exclusive_win_e_1_s_1_78_94_observation_o_0_36_7_user_1 <= 1 else -100000000
+  satellite_s_0_capacity_constraint:
+    type: intention
+    function: 0 if decision_var_exclusive_win_e_2_s_0_232_249_observation_o_0_36_6_user_2 <= 5 else -100000000
+  satellite_s_1_capacity_constraint:
+    type: intention
+    function: 0 if decision_var_exclusive_win_e_1_s_1_78_94_observation_o_0_36_7_user_1 <= 7 else -100000000
+  soft_constraint_decision_var_exclusive_win_e_2_s_0_232_249_observation_o_0_36_6_user_2:
+    type: intention
+    function: 0 if decision_var_exclusive_win_e_2_s_0_232_249_observation_o_0_36_6_user_2 == 1 else 0
+  soft_constraint_decision_var_exclusive_win_e_1_s_1_78_94_observation_o_0_36_7_user_1:
+    type: intention
+    function: 1 if decision_var_exclusive_win_e_1_s_1_78_94_observation_o_0_36_7_user_1 == 1 else 0
+
+agents:
+  u_1:
+    variables: [decision_var_exclusive_win_e_1_s_1_78_94_observation_o_0_36_7_user_1]
+  u_2:
+    variables: [decision_var_exclusive_win_e_2_s_0_232_249_observation_o_0_36_6_user_2]
