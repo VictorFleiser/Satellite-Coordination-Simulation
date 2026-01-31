@@ -1,0 +1,11 @@
+networkx
+numpy
+PuLP
+pytest
+PyYAML
+requests
+Sphinx
+sphinx-rtd-theme
+sphinxcontrib-bibtex
+tqdm
+websocket-server
